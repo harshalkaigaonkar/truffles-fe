@@ -9,6 +9,7 @@
     "@heroicons/react": "^2.0.14",
     "@next/font": "^13.1.6",
     "chart.js": "^4.2.0",
+    "color-calendar": "^1.0.7",
     "next": "latest",
     "react": "18.2.0",
     "react-chartjs-2": "^5.2.0",

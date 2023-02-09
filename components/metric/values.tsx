@@ -35,7 +35,7 @@ const ValuesComponent = () => {
        </div>
       </div>
      </span>
-     <span className='mt-5 flex flex-row items-center gap-5'>
+     <span className='mt-2 flex flex-row items-center gap-5'>
       <div className='w-[50%] py-3 px-5 rounded-xl shadow-lg shadow-black/10 flex flex-row justify-between items-center bg-white border-2'>
        <span>
         <h4 className='text-sm text-black/60'>Receivable</h4>

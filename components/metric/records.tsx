@@ -19,7 +19,7 @@ const RecordsComponent: FC = () => {
    amt: 12354365
   },
   {
-   type: "inc",
+   type: "dec",
    name: "QUICKSILVER LLC",
    rfid: "83459837",
    amt: 12354365
@@ -31,23 +31,17 @@ const RecordsComponent: FC = () => {
    amt: 12354365
   },
   {
-   type: "inc",
+   type: "dec",
    name: "QUICKSILVER LLC",
    rfid: "83459837",
    amt: 12354365
-  },
-  {
-   type: "inc",
-   name: "QUICKSILVER LLC",
-   rfid: "83459837",
-   amt: 12354365
-  },
+  }
  ]
 
   return (
-   <div className='mx-10 bg-white flex flex-col justify-end'>
+   <div className='ml-3 px-5 py-3 bg-white rounded-b-lg shadow-lg shadow-black/50'>
     {records && records.map((item: RecordProps, index: number) => (
-     <div className='mt-2 flex flex-row justify-between items-center w-fit' key={index}>
+     <div className='p-[3px] mt-3 flex flex-row justify-between items-center w-full' key={index}>
       {item.type === 'inc' ? (
        <span>
         <ArrowUpRightIcon className='w-6 h-6 text-green-500' />
@@ -57,12 +51,13 @@ const RecordsComponent: FC = () => {
         <ArrowDownRightIcon className='w-6 h-6 text-red-500' />
        </span>
       )}
-      <span>
-       <h2>{item.name}</h2>
-       <h6>RFID:{item.rfid}</h6>
+      <span className='ml-4 w-30 truncate'>
+       <h2 className='text-sm'>{item.name}</h2>
+       <h6 className='mt-2 text-[8px]'>RFID:{item.rfid}</h6>
       </span>
+      <div className='flex-1' />
       <span>
-       <h2>${new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(item.amt)}</h2>
+       <h2 className='font-semibold text-[12px]'>${new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(item.amt)}</h2>
       </span>
      </div>
     ))}

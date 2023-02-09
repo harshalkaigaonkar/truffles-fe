@@ -23,12 +23,12 @@ const Home: NextPage = () => {
         <DashboardNavigation page={"dashboard"} />
         <div className='p-3 w-[80%] flex flex-col'>
           <AlertComponent />
-          <span className='flex flex-row '>
-            <div className='flex flex-col w-[70%]'>
+          <span className='flex flex-row justify-between'>
+            <div className='flex flex-col w-[68%]'>
               <ValuesComponent />
               <ChartComponent />
             </div>
-            <div className='flex flex-col w-[30%]'>
+            <div className='flex flex-col w-[32%]'>
               <CalendarComponent />
               <RecordsComponent />
             </div>
