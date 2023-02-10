@@ -41,11 +41,17 @@ const ChartComponent = () => {
     datasets: [
       {
         label: 'Assets',
-        data: dataArr.map(row => row.count)
+        data: dataArr.map(row => row.count),
+        borderColor: "#82D616",
+        backgroundColor: "rgba(130,214,22,1)",
+        tension: 0.5,
       },
       {
         label: 'Liability',
-        data: dataArr.map(row => row.count-2)
+        data: dataArr.map(row => row.count-2),
+        borderColor:"#FF8540",
+        backgroundColor:"rgba(255,133,64,1)",
+        tension: 0.5,
       }
     ]
   }
