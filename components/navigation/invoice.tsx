@@ -1,39 +1,128 @@
-import React from 'react'
+import React, { FC } from 'react'
 import NavigationComponent from '.'
-import {Squares2X2Icon} from '@heroicons/react/24/solid'
+import {CheckIcon, Squares2X2Icon} from '@heroicons/react/24/solid'
 
-const InvoiceNavigation = () => {
+type InvoiceNavigationProps = {
+  invoiceFormLevel: 0|1|2|3|4|5|number;
+}
+
+const InvoiceNavigation: FC<InvoiceNavigationProps> = ({invoiceFormLevel}) => {
+  
+  const InvoiceParts: string[] = [
+    'user information',
+    'business information',
+    'business information 2',
+    'upload documents',
+    'preview',
+  ]
+  
   return (
     <NavigationComponent>
-     <section>
-     <div>
-      <span>
-       <Squares2X2Icon className="h-6 w-6 text-blue-500" />
-      </span>
-      <h5>
-       Dashboard
-      </h5>
-     </div>
-     <div>
-      <span>
-       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
-       </svg>
-      </span>
-      <h5>
-       Invoice
-      </h5>
-     </div>
-     <div>
-      <span>
-       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
-       </svg>
-      </span>
-      <h5>
-       Contacts
-      </h5>
-     </div>
+     <section className='h-66'>
+      <div className='absolute z-10 w-10 h-full flex flex-col items-center'>
+        <div className='w-6 h-6 rounded-full border-2 border-black/20 bg-white' />
+        <div className='w-[3px] h-8 border border-black/10 bg-black/10'  />
+        <div className='w-6 h-6 rounded-full border-2 border-black/10 bg-white' />
+        <div className='w-[3px] h-8 border border-black/10 bg-black/10'  />
+        <div className='w-6 h-6 rounded-full border-2 border-black/10 bg-white' />
+        <div className='w-[3px] h-8 border border-black/10 bg-black/10'  />
+        <div className='w-6 h-6 rounded-full border-2 border-black/10 bg-white' />
+        <div className='w-[3px] h-8 border border-black/10 bg-black/10'  />
+        <div className='w-6 h-6 rounded-full border-2 border-black/10 bg-white' />
+      </div>
+      <div className='absolute z-20 w-10 h-full flex flex-col items-center'>
+        {invoiceFormLevel === 0 ? 
+          <div className='w-6 h-6 inline-flex justify-center items-center rounded-full border-2 border-[#7445F8] transition animation'>
+            <div className='w-2 h-2 bg-[#7445F8] rounded-full' />
+          </div> :
+          invoiceFormLevel > 0 &&
+          <div className='w-6 h-6 inline-flex justify-center items-center rounded-full border-2 border-[#7445F8] bg-[#7445F8]'>
+            <span className=''>
+              <CheckIcon className={` ${invoiceFormLevel  === 1 && "transition animate-translate"}
+              w-4 h-4 text-[#111827]`} />
+            </span>
+          </div>
+        }
+        {invoiceFormLevel > 0 && <div className='h-8'>
+          <div className={` ${invoiceFormLevel === 1 && "transition animate-height-grow"}
+          w-[3px] h-8 border border-[#7445F8] bg-[#7445F8]`}  />
+        </div>}
+        {invoiceFormLevel === 1 ? 
+          <div className={` ${invoiceFormLevel === 1 && "transition animate-opacity"}
+          w-6 h-6 inline-flex justify-center items-center rounded-full border-2 border-[#7445F8]`}>
+            <div className='w-2 h-2 bg-[#7445F8] rounded-full' />
+          </div> :
+          invoiceFormLevel > 1 &&
+          <div className='w-6 h-6 inline-flex justify-center items-center rounded-full border-2 border-[#7445F8] bg-[#7445F8]'>
+            <span className=''>
+              <CheckIcon className={` ${invoiceFormLevel  === 2 && "transition animate-translate"}
+              w-4 h-4 text-[#111827]`} />
+            </span>
+          </div>
+        }
+        {invoiceFormLevel > 1 && <div className='h-8'>
+          <div className={` ${invoiceFormLevel === 2 && "transition animate-height-grow"}
+          w-[3px] h-8 border border-[#7445F8] bg-[#7445F8]`}   />
+        </div>}
+        {invoiceFormLevel === 2 ? 
+          <div className={` ${invoiceFormLevel === 2 && "transition animate-opacity"}
+          w-6 h-6 inline-flex justify-center items-center rounded-full border-2 border-[#7445F8]`}>
+            <div className='w-2 h-2 bg-[#7445F8] rounded-full' />
+          </div> :
+          invoiceFormLevel > 2 &&
+          <div className='w-6 h-6 inline-flex justify-center items-center rounded-full border-2 border-[#7445F8] bg-[#7445F8]'>
+            <span className=''>
+              <CheckIcon className={` ${invoiceFormLevel  === 3 && "transition animate-translate"}
+              w-4 h-4 text-[#111827]`} />
+            </span>
+          </div>
+        }
+        {invoiceFormLevel > 2 && <div className='h-8'>
+          <div className={` ${invoiceFormLevel === 3 && "transition animate-height-grow"}
+          w-[3px] h-8 border border-[#7445F8] bg-[#7445F8]`}   />
+        </div>}
+        {invoiceFormLevel === 3 ? 
+          <div className={` ${invoiceFormLevel === 3 && "transition animate-opacity"}
+          w-6 h-6 inline-flex justify-center items-center rounded-full border-2 border-[#7445F8]`}>
+            <div className='w-2 h-2 bg-[#7445F8] rounded-full' />
+          </div> :
+          invoiceFormLevel > 3 &&
+          <div className='w-6 h-6 inline-flex justify-center items-center rounded-full border-2 border-[#7445F8] bg-[#7445F8]'>
+            <span className=''>
+              <CheckIcon className={` ${invoiceFormLevel  === 4 && "transition animate-translate"}
+              w-4 h-4 text-[#111827]`} />
+            </span>
+          </div>
+        }
+        {invoiceFormLevel > 3 && <div className='h-8'>
+          <div className={` ${invoiceFormLevel === 4 && "transition animate-height-grow"}
+          w-[3px] h-8 border border-[#7445F8] bg-[#7445F8]`}   />
+        </div>}
+        {invoiceFormLevel === 4 ? 
+          <div className={` ${invoiceFormLevel === 4 && "transition animate-opacity"}
+          w-6 h-6 inline-flex justify-center items-center rounded-full border-2 border-[#7445F8]`}>
+            <div className='w-2 h-2 bg-[#7445F8] rounded-full' />
+          </div> :
+          invoiceFormLevel > 4 &&
+          <div className='w-6 h-6 inline-flex justify-center items-center rounded-full border-2 border-[#7445F8] bg-[#7445F8]'>
+            <span className=''>
+              <CheckIcon className={` ${invoiceFormLevel  === 5 && "transition animate-translate"}
+              w-4 h-4 text-[#111827]`} />
+            </span>
+          </div>
+        }
+      </div>
+      <div className='flex flex-col justify-around items-around h-full ml-14 w-full'>
+        {InvoiceParts.map((item:string, index:number) => (
+          <span key={index}>
+            <div className={`${invoiceFormLevel === index && "bg-[#7445F8] bg-clip-text text-transparent"}
+              inline-block align-middle h-5 w-full`}>
+              <p className=' font-semibold text-[11px] w-full'>{item.toUpperCase()}</p>
+            </div>
+            <div className='h-8' />
+          </span>
+        ))}
+      </div>
     </section>
     </NavigationComponent>
   )
