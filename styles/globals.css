@@ -17,3 +17,11 @@ html, body {
 .bg-gradient {
  @apply bg-gradient-to-r from-[#A76FFF] to-[#7445F8]
 }
+
+::-webkit-calendar-picker-indicator {
+ @apply absolute cursor-pointer
+}
+
+::-webkit-datetime-edit-day-field {
+ @apply ml-6
+}

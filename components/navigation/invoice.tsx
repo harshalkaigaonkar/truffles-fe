@@ -3,7 +3,7 @@ import NavigationComponent from '.'
 import {CheckIcon, Squares2X2Icon} from '@heroicons/react/24/solid'
 
 type InvoiceNavigationProps = {
-  invoiceFormLevel: 0|1|2|3|4|5|number;
+  invoiceFormLevel: number;
 }
 
 const InvoiceNavigation: FC<InvoiceNavigationProps> = ({invoiceFormLevel}) => {

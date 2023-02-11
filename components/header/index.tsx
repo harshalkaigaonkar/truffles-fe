@@ -9,7 +9,7 @@ type HeaderComponentProps = {
 
 const HeaderComponent: FC<HeaderComponentProps> = ({title}) => {
   return (
-   <header className='flex flex-row w-full h-16 border-b-2 border-black/5 items-center'>
+   <header className='sticky top-0 flex flex-row w-full h-16 border-b-2 border-black/5 items-center bg-opacity-100 backdrop-blur backdrop-filter'>
     <span className='w-[20%] inline-flex justify-center items-center'>
     <Link href="/">
       <Image

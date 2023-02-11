@@ -6,7 +6,7 @@ type NavigationComponentProps = {
 
 const NavigationComponent: FC<NavigationComponentProps> = ({children}) => {
   return (
-    <nav className='w-[20%] flex-1 bg-inherit p-8'>
+    <nav className='fixed left-0 top-16 w-[20%] flex-1 bg-inherit p-8 overflow-hidden'>
      {children}
     </nav>
   )

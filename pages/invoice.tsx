@@ -7,13 +7,15 @@ import CalendarComponent from '../components/calendar'
 import ChartComponent from '../components/chart'
 import HeaderComponent from '../components/header'
 import InvoiceForm from '../components/invoice'
+import BizInfoInvoiceForm from '../components/invoice/bizinfo'
+import InfoInvoiceForm from '../components/invoice/info'
 import RecordsComponent from '../components/metric/records'
 import ValuesComponent from '../components/metric/values'
 import InvoiceNavigation from '../components/navigation/invoice'
 
 const Invoice: NextPage = () => {
 
-  const [invoiceFormLevel, setInvoiceFormLevel] = useState<0|1|2|3|4|5|number>(0);
+  const [invoiceFormLevel, setInvoiceFormLevel] = useState<number>(0);
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -24,11 +26,23 @@ const Invoice: NextPage = () => {
 
       <HeaderComponent title="Invoice" />
 
-      <main className="flex w-full flex-1 flex-row">
+      <main className="flex w-full flex-1 flex-row justify-end">
         <InvoiceNavigation invoiceFormLevel={invoiceFormLevel} />
-        <div className='p-3 w-[80%] flex flex-col'>
+        <div className='w-[80%] flex flex-col'>
           <InvoiceForm invoiceFormLevel={invoiceFormLevel} setInvoiceFormLevel={setInvoiceFormLevel}>
-            <p>Hello</p>
+            {
+              invoiceFormLevel === 0 ? (
+                <InfoInvoiceForm />
+                ) :
+              invoiceFormLevel === 1 ? (
+                <BizInfoInvoiceForm />
+                ) :
+                (
+                  <span>
+                    <p>No Content Available for this Form</p>
+                  </span>
+                )
+            }
           </InvoiceForm>
         </div>
       </main>

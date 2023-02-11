@@ -1,33 +1,38 @@
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
-import React, { Dispatch, FC, ReactNode, SetStateAction } from 'react'
+import { NextRouter, useRouter } from 'next/router';
+import React, { Dispatch, FC, ReactNode, SetStateAction, useRef } from 'react'
 
-type InvoiceFormProps = {
- invoiceFormLevel: 0|1|2|3|4|5|number,
- setInvoiceFormLevel: Dispatch<SetStateAction<0 | 1 | 2 | 3 | 4 | 5 | number>>;
+export type InvoiceFormProps = {
+ invoiceFormLevel: number,
+ setInvoiceFormLevel: Dispatch<SetStateAction<number>>;
  children: ReactNode
 }
 
 const InvoiceForm : FC<InvoiceFormProps> = ({invoiceFormLevel, setInvoiceFormLevel, children}) => {
   
+  const router: NextRouter = useRouter();
+
   const onNextFormLevel = () => {
-    if(invoiceFormLevel === 5)
-    // have to show a modal for completed invoice form
-    return;
     setInvoiceFormLevel(invoiceFormLevel+1);
+    if(invoiceFormLevel+1 === 5) {
+      alert("You've successfully filled all forms.");
+      router.push("/");
+    }
   }
   const onPrevFormLevel = () => {
-    if(invoiceFormLevel === 0)
-    // have to show a modal for completed invoice form
-    return;
     setInvoiceFormLevel(invoiceFormLevel-1);
+    if(invoiceFormLevel === 0) {
+      alert("No previous forms found!!");
+      router.push("/");
+    }
   }
  
   return (
-    <section className='p-5 w-full'>
+    <section className='top-0 py-9 px-16 w-full h-full bg-white'>
       <div>
         {children}
       </div>
-      <div className='w-full flex justify-between'>
+      <div className='mt-5 w-full flex justify-between'>
       <span
         onClick={onPrevFormLevel}
         className="cursor-pointer group relative inline-flex items-center overflow-hidden rounded border border-black/50 px-8 py-3 focus:outline-none focus:ring active:bg-[#7445F8]"
@@ -39,7 +44,7 @@ const InvoiceForm : FC<InvoiceFormProps> = ({invoiceFormLevel, setInvoiceFormLev
         </span>
 
         <span className="text-sm font-medium transition-all group-hover:mr-4">
-          Prev
+          Back
         </span>
       </span>
       <span

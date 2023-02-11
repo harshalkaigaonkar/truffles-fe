@@ -19,7 +19,7 @@ const Home: NextPage = () => {
 
       <HeaderComponent title="Dashboard" />
 
-      <main className="flex w-full flex-1 flex-row">
+      <main className="w-full flex flex-1 flex-row justify-end">
         <DashboardNavigation page={"dashboard"} />
         <div className='p-3 w-[80%] flex flex-col'>
           <AlertComponent />
