@@ -46,7 +46,7 @@ const ChartComponent = () => {
         backgroundColor: "rgba(130,214,22,.1)",
         fill: true,
         tension: 0.5,
-        pointStyle: false
+        pointStyle: 'false'
       },
       {
         label: 'Liability',
@@ -55,7 +55,7 @@ const ChartComponent = () => {
         backgroundColor:"rgba(255,133,64,.1)",
         fill: true,
         tension: 0.5,
-        pointStyle: false
+        pointStyle: 'false'
       }
     ]
   }
