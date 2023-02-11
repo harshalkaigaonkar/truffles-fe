@@ -1,6 +1,6 @@
 # Truffles FE Task
 
-![image](https://user-images.githubusercontent.com/65395607/218279688-783db335-d146-466b-940f-c4f3bf869497.png)
+![image](https://user-images.githubusercontent.com/65395607/218279742-67658624-088b-4d05-9321-e9f3bf8e378c.png)
 
 ![image](https://user-images.githubusercontent.com/65395607/218279689-2fca6c24-e55b-4e04-962e-f9d0c713635d.png)
 
