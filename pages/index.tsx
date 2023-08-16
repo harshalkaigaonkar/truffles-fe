@@ -13,7 +13,7 @@ const Home: NextPage = () => {
   return (
     <div className="flex min-h-screen flex-col">
       <Head>
-        <title>Truffles Dashboard</title>
+        <title>Truffles Dashboard nahi hai ye to bc</title>
         <link rel="icon" href="/favicon.png" />
       </Head>
 
